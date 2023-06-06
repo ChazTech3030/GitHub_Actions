@@ -5,9 +5,9 @@ jobs:
   push_workflow:
     runs-on: ubuntu-latest
     steps:
-      - name: download code
+      - name: Download GitHub Code
         uses: actions/checkout@v3
-      - name: check download
+      - name: Download Docker nginx
         run: |
           docker image pull nginx
           docker image ls
@@ -16,3 +16,9 @@ jobs:
         run: |
           python3 -c "import requests; r=requests.get('http://localhost:8080'); print(r.status_code)"
           curl -s localhost:8080
+
+  dummy_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo echo echo
+        run: echo "Hello World!"

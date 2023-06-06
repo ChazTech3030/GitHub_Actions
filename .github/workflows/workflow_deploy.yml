@@ -21,5 +21,5 @@ jobs:
     needs: [push_workflow]
     runs-on: ubuntu-latest
     steps:
-      - name: echo echo echo
-        run: echo "Hello World!"
+      - name: GitHub Object Inspection
+        run: echo "${{    toJSON(   github   )     }}"

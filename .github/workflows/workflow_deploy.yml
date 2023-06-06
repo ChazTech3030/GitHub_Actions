@@ -11,7 +11,7 @@ on:
 
 
 jobs:
-  push_workflow:
+  docker_test:
     runs-on: ubuntu-latest
     steps:
       - name: Download GitHub Code
@@ -27,8 +27,23 @@ jobs:
           curl -s localhost:8080
 
   dummy_job:
-    needs: [push_workflow]
+    needs: [docker_test]
     runs-on: ubuntu-latest
     steps:
       - name: GitHub Object Inspection
-        run: echo "${{    toJSON(   github   )     }}"
+        run: echo "${{toJSON(github)}}"
+
+  get_file_from_vm:
+    needs: [docker_test]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Make a temp file
+        run: |
+          touch new_file
+          echo "some text in the new file" > new_file
+      - name: Upload the artifact for viewing
+        uses: actions/upload-artifact@v3
+        with:
+          name: uploaded_file_ready_to_view
+          path: /home/runner/work/GitHub_Actions/GitHub_Actions/new_file

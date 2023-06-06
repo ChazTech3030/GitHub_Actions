@@ -6,8 +6,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: download code
-       uses: actions/checkout@v3
-      - name: inspect download
+        uses: actions/checkout@v3
+      - name: check download
         run: |
           pwd
           ls -lart

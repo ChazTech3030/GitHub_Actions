@@ -18,6 +18,7 @@ jobs:
           curl -s localhost:8080
 
   dummy_job:
+    needs: [push_workflow]
     runs-on: ubuntu-latest
     steps:
       - name: echo echo echo

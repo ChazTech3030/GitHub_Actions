@@ -2,7 +2,7 @@ name: deploying_stuff
 on:
   pull_request:
     types: [opened, synchronize]
-  push_workflow:
+  workflow_dispatch:
 
 
 jobs:

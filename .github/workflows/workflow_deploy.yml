@@ -42,8 +42,9 @@ jobs:
         run: |
           touch new_file
           echo "some text in the new file" > new_file
+          echo "FILE_PATH=$(pwd)/new_file" >> $GITHUB_ENV
       - name: Upload the artifact for viewing
         uses: actions/upload-artifact@v3
         with:
           name: uploaded_file_ready_to_view
-          path: /home/runner/work/GitHub_Actions/GitHub_Actions/new_file
+          path: "${{  env.FILE_PATH  }}"

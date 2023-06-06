@@ -3,6 +3,12 @@ on:
   pull_request:
     types: [opened, synchronize]
   workflow_dispatch:
+  push:
+    branches:
+      - main
+      - new_branch
+  paths-ignore:
+    - '.github/workflows/*'
 
 
 jobs:

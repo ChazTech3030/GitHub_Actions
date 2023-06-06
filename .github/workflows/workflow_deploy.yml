@@ -5,9 +5,9 @@ jobs:
   push_workflow:
     runs-on: ubuntu-latest
     steps:
-      -name: download code
+      - name: download code
        uses: actions/checkout@v3
-      -name: inspect download
+      - name: inspect download
         run: |
           pwd
           ls -lart

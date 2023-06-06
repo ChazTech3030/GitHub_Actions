@@ -1,5 +1,5 @@
 name: deploying_stuff
-on: push
+on: [push, workflow_dispatch]
 
 jobs:
   push_workflow:
